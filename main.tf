@@ -204,6 +204,7 @@ resource "aws_instance" "web-server-01" {
 }
 
 resource "aws_db_instance" "rds" {
+  identifier           = "reservationdb"
   db_name              = "reservationdb"
   allocated_storage    = 20
   engine               = "mysql"
