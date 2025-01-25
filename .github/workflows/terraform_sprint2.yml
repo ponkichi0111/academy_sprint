@@ -1,0 +1,44 @@
+name: Terraform Sprint 2 Deployment
+
+on:
+  push:
+    paths:
+      - 'terraform/sprint2/**'  # sprint2ディレクトリ内の変更がトリガー
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. リポジトリのコードをチェックアウト
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # 2. Terraformのセットアップ
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.10.4
+
+    # 3. AWS認証の設定（必要な場合）
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v3
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-northeast-1
+
+    # 4. terraform/sprint2のディレクトリで初期化
+    - name: Terraform Init for Sprint 2
+      run: terraform init
+      working-directory: terraform/sprint2
+
+    # 5. sprint2用のplanを実行
+    - name: Terraform Plan for Sprint 2
+      run: terraform plan
+      working-directory: terraform/sprint2
+
+    # 6. sprint2用のapplyを実行
+    - name: Terraform Apply for Sprint 2
+      run: terraform apply -auto-approve
+      working-directory: terraform/sprint2
