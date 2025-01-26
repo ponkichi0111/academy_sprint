@@ -67,6 +67,8 @@ jobs:
 
       - name: Initialize Terraform
         run: terraform init
+        working-directory: terraform/sprint2/ec2
 
       - name: Destroy Terraform resources
-        run: terraform destroy -chdir=terraform/sprint2/ec2 -auto-approve
+        run: terraform destroy -auto-approve
+        working-directory: terraform/sprint2/ec2
