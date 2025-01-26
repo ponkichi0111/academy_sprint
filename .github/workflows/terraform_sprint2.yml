@@ -31,7 +31,7 @@ jobs:
     # 4. terraform/sprint2のディレクトリで初期化
     - name: Terraform Init for Sprint 2
       run: terraform init
-      working-directory: terraform/sprint2
+      working-directory: terraform/sprint2/ec2
 
     # 5. sprint2用のplanを実行
     - name: Terraform Plan for Sprint 2
