@@ -1,4 +1,4 @@
-name: Terraform Sprint 2 Deployment
+name: Terraform Sprint 2 Deployment & Destroy
 
 on:
   push:
