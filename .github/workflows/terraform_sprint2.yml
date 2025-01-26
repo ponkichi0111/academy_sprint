@@ -9,7 +9,7 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'  # pushイベントでのみデプロイを実行
+    if: github.event_name == 'push'  # pushイベントでのみデプロイを実行
 
     steps:
       # 1. リポジトリのコードをチェックアウト
@@ -32,7 +32,7 @@ jobs:
 
       # 4. terraform/sprint2のディレクトリで初期化
       - name: Terraform Init for Sprint 2
-        run: terraform init
+        run: terraform init -reconfigure
         working-directory: terraform/sprint2/ec2
 
       # 5. sprint2用のplanを実行
@@ -66,7 +66,7 @@ jobs:
           terraform_version: 1.10.4
 
       - name: Initialize Terraform
-        run: terraform init
+        run: terraform init -reconfigure
         working-directory: terraform/sprint2/ec2
 
       - name: Destroy Terraform resources
