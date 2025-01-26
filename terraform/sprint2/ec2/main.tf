@@ -7,7 +7,7 @@ resource "aws_vpc" "reservation-vpc" {
   cidr_block = "10.0.0.0/21"
 
   tags = {
-    Name = "reservation-vpc1"
+    Name = "reservation-vpc"
   }
 }
 
