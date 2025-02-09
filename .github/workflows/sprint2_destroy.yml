@@ -1,12 +1,12 @@
 name: Terraform Destroy
 
 on:
-  push:
-    branches:
-      - test
-    paths:
-      - 'terraform/sprint2/**'
-  workflow_dispatch:  # 手動で実行するためのトリガー
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to deploy'
+        required: true
+        default: 'test'
 
 jobs:
   destroy:
