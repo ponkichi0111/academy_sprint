@@ -28,6 +28,9 @@ jobs:
         with:
           ref: test
 
+      - name: Change to Terraform Directory
+        run: cd terraform/sprint2/ec2
+
       - name: Initialize Terraform
         run: terraform init
         working-directory: terraform/sprint2/ec2
