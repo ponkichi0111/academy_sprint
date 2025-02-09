@@ -7,9 +7,8 @@ on:
   workflow_dispatch:  # 手動で実行するためのトリガー
 
 jobs:
-  destroy:
+  terraform:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
