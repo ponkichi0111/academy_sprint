@@ -1,6 +1,9 @@
 name: Terraform Destroy
 
 on:
+  push:
+    paths:
+      - 'terraform/sprint2/**'
   workflow_dispatch:  # 手動で実行するためのトリガー
 
 jobs:
